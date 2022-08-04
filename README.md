@@ -24,3 +24,24 @@ Para salir se introduce:
     SALIR
 
 ## Corrida
+Se requiere de Node.js para la corrida de este proyecto, por lo que se debe instalar Node.js por medio del sitio web: https://nodejs.org/en/. Junto a Node.js se instala npm que nos ayudará a instalar los demás paquetes necesarios para el proyecto. Se debe realizar la instalación de tsPEG con el comando:
+
+        npm install -g tspeg
+        
+Instalar el paquete @types/node con el comando:
+
+        npm install @types/node --save-dev
+        
+Se puede instalar Typescript con el siguiente comando:
+
+        npm install -g typescript
+
+Se corre el programa con los siguiente comandos:
+
+        tspeg gramaticaLexer.peg parser.ts
+        tspeg gramaticaInterprete.peg parser2.ts
+        tsc -p tsconfig.json
+        node subsetPROLOG.js
+        
+## Librería tspeg
+Se utilizó para la creación de las gramáticas que ayudan a leer las expresiones del lenguaje.

@@ -1,0 +1,14 @@
+start:= start = grammar $
+grammar := estructura
+space := ' ' | '\\t' | '\n' | '\r\n'
+TkAtomo := value = 'TkAtomo\([a-z][a-zA-Z0-9]*\) '
+TkVariable := value = 'TkVariable\([A-Z][a-zA-Z0-9]*\) '
+TkOpenPar := value = 'TkOpenPar '
+TkClosePar := value = 'TkClosePar'
+TkFalse := value = 'TkFalse '
+TkTrue := value = 'TkTrue '
+TkComma := value = 'TkComma '
+
+estructura := space* atomo=TkAtomo space* TkOpenPar space* entradas=expresion space* TkClosePar space* f=functor? | TkVariable | TkAtomo
+functor := space* b={{e=estructura}*}? space*
+expresion := space* e=estructura space* b={{TkComma e=estructura}*}? space*

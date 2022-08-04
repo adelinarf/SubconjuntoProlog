@@ -1,0 +1,10 @@
+start := start = recursive space* $
+recursive := TkAtomo | TkVariable | TkTrue | TkFalse | TkComma | TkOpenPar | TkClosePar
+TkFalse := space* value = 'false' next=recursive*
+TkTrue := space* value = 'true' next=recursive*
+TkAtomo := space* value = '[a-z][a-zA-Z0-9]*' next=recursive*
+TkVariable := space* value = '[A-Z][a-zA-Z0-9]*' next=recursive*
+TkOpenPar := space* value = '\(' next=recursive*
+TkClosePar := space* value = '\)' next=recursive*
+TkComma := space* value = '\,' next=recursive*
+space := ' ' | '\\t' | '\n' | '\r\n' | '[" "]+'
